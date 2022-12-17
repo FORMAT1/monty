@@ -29,3 +29,13 @@ int line_err(unsigned int line_number)
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	return (EXIT_FAILURE);
 }
+/**
+ * file_err -prints error message for failure to open file
+ * @filename: pointer to the name of the file
+ * Return: EXIT_FAILURE
+ */
+int file_err(char *filename)
+{
+	fprintf(stderr, "Error: Can't open file %s\n", filename);
+	return (EXIT_FAILURE);
+}

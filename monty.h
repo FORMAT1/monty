@@ -1,6 +1,9 @@
 #ifndef __MONTY_H__
 #define __MONTY_H__
 
+#define STACK 1
+
+
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -38,8 +41,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int line_err(unsigned int line_number);
 
+/*handles errors*/
+
+int line_err(unsigned int line_number);
+int file_err(char *filename);
 int malloc_err(void);
 int usage_err(void);
+/*error end*/
+
+/*stacks */
+
+int create_stack(stack_t **stack);
+void free_stack(stack_t **stack);
+
+/*stacks*/
 #endif /* _MONTY_H_ */
