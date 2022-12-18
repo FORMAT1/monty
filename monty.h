@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #ifndef MONTY_H
 #define MONTY_H
 #include <stdio.h>
@@ -8,20 +7,9 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
-=======
-#ifndef __MONTY_H__
-#define __MONTY_H__
->>>>>>> f4c65d75a96cfb1386f9fcf3b1b8f8c3ff1c5c82
-
-#define STACK 1
+#define STACK 0
 
 
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -74,7 +62,6 @@ void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
 void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
@@ -92,9 +79,6 @@ void addqueue(stack_t **head, int n);
 void f_queue(stack_t **head, unsigned int counter);
 void f_stack(stack_t **head, unsigned int counter);
 
-<<<<<<< HEAD
-#endif
-=======
 
 /*handles errors*/
 
@@ -113,4 +97,3 @@ void free_stack(stack_t **stack);
 int controls(FILE *file);
 int main(int argc, char **argv);
 #endif /* _MONTY_H_ */
->>>>>>> f4c65d75a96cfb1386f9fcf3b1b8f8c3ff1c5c82
