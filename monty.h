@@ -88,7 +88,7 @@ int malloc_err(void);
 int usage_err(void);
 /*error end*/
 
-/*stacks */
+/*stack */
 
 int create_stack(stack_t **stack);
 void free_stack(stack_t **stack);
