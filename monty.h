@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef MONTY_H
 #define MONTY_H
 #include <stdio.h>
@@ -7,7 +8,21 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+=======
+#ifndef __MONTY_H__
+#define __MONTY_H__
+>>>>>>> f4c65d75a96cfb1386f9fcf3b1b8f8c3ff1c5c82
 
+#define STACK 1
+
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -49,8 +64,8 @@ extern bus_t bus;
  */
 typedef struct instruction_s
 {
-		char *opcode;
-			void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
@@ -77,4 +92,23 @@ void addqueue(stack_t **head, int n);
 void f_queue(stack_t **head, unsigned int counter);
 void f_stack(stack_t **head, unsigned int counter);
 
+<<<<<<< HEAD
 #endif
+=======
+
+/*handles errors*/
+
+int line_err(unsigned int line_number);
+int file_err(char *filename);
+int malloc_err(void);
+int usage_err(void);
+/*error end*/
+
+/*stacks */
+
+int create_stack(stack_t **stack);
+void free_stack(stack_t **stack);
+
+/*stacks*/
+#endif /* _MONTY_H_ */
+>>>>>>> f4c65d75a96cfb1386f9fcf3b1b8f8c3ff1c5c82
