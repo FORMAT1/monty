@@ -1,23 +1,45 @@
 #include "monty.h"
+
 /**
- * main - the entry point for the monty project interpreter
- * @argc: the numbe rof arguments sent from the terminal
- * @argv: pointer to an array of char pointers of the arguments
- * Return: depends on the error file
+ * main - monty code interpreter
+ * @argc: number of arguments
+ * @argv: monty file location
+ * Return: 0 on success
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	FILE *file = NULL;
+	char *content;
+	FILE *file;
+	size_t size = 0;
+	ssize_t read_line = 1;
+	stack_t *stack = NULL;
+	unsigned int counter = 0;
 
 	if (argc != 2)
-		return (usage_err());
-
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	file = fopen(argv[1], "r");
-
-	if (file == NULL)
-		return (file_err(argv[1]));
-	controls(file);	
+	bus.file = file;
+	if (!file)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	while (read_line > 0)
+	{
+		content = NULL;
+		read_line = getline (&content, &size, file);
+		bus.content = content;
+		counter++;
+		if (read_line > 0)
+		{
+			execute(content, &stack, counter, file);
+		}
+		free(content);
+	}
+	free_stack(stack);
 	fclose(file);
-	return (0);
+return (0);
 }
-

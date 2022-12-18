@@ -7,10 +7,6 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
-#define STACK 0
-
-
-#include <sys/stat.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -23,7 +19,7 @@
 typedef struct stack_s
 {
 	int n;
-	struct stack_s *prev;	
+	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
 /**
@@ -57,11 +53,12 @@ typedef struct instruction_s
 } instruction_t;
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
-char  *clean_line(char *content);
+char *clean_line(char *content);
 void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+void free_stack(stack_t *head);
 void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
@@ -79,21 +76,4 @@ void addqueue(stack_t **head, int n);
 void f_queue(stack_t **head, unsigned int counter);
 void f_stack(stack_t **head, unsigned int counter);
 
-
-/*handles errors*/
-
-int line_err(unsigned int line_number);
-int file_err(char *filename);
-int malloc_err(void);
-int usage_err(void);
-/*error end*/
-
-/*stack */
-
-int create_stack(stack_t **stack);
-void free_stack(stack_t **stack);
-
-/*stacks*/
-int controls(FILE *file);
-int main(int argc, char **argv);
-#endif /* _MONTY_H_ */
+#endif
