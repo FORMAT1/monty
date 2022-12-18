@@ -56,4 +56,6 @@ int create_stack(stack_t **stack);
 void free_stack(stack_t **stack);
 
 /*stacks*/
+int controls(FILE *file);
+int main(int argc, char **argv);
 #endif /* _MONTY_H_ */

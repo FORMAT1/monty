@@ -1,3 +1,4 @@
+#include "monty.h"
 /*This file is supposed to handle the creation of thr stack(linked list)*/
 /*freeing the stack and handling all other related stuff*/
 /**
@@ -38,3 +39,4 @@ void free_stack(stack_t **stack)
 		*stack = temp;
 	}
 }
+
