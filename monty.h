@@ -75,5 +75,6 @@ void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
 void f_queue(stack_t **head, unsigned int counter);
 void f_stack(stack_t **head, unsigned int counter);
+size_t getline (char **string, size_t *n, FILE *stream);
 
 #endif
